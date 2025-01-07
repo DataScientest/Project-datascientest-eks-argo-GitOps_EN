@@ -2,7 +2,7 @@
 
 ## Deploying a Reddit Application on Amazon Elastic Kubernetes Service (EKS) with ArgoCD, Monitoring its Performance with Prometheus and Grafana, Backup and Restore with Velero
 
-<img src="Src/Images/1.png" alt="Paris" class="center">" alt="Paris" class="center">
+<img src="Src/Images/1.png" alt="Paris" class="center">
 
 
 
@@ -290,7 +290,9 @@ Before you begin, ensure that you have the following:
    
      5. **Access Jenkins:**
    
-        <img src="Src/Images/2.png" alt="Paris" class="center">)
+        <img src="Src/Images/2.png" alt="Paris" class="center">
+    
+        
    
         - Copy the public IP address of the instance and access Jenkins via your preferred browser:
    
@@ -308,13 +310,13 @@ Before you begin, ensure that you have the following:
    
      7. **Create a Jenkins user:**
    
-        <img src="Src/Images/3.png" alt="Paris" class="center">)
+        <img src="Src/Images/3.png" alt="Paris" class="center">
    
         - (Optional) Create a user if you do not wish to keep the default password.
    
      8. **Install necessary plugins:**
    
-        <img src="Src/Images/4.png" alt="Paris" class="center">)
+        <img src="Src/Images/4.png" alt="Paris" class="center">
    
         - Go to
    
@@ -334,7 +336,7 @@ Before you begin, ensure that you have the following:
    
      9. **Access the SonarQube console created through the installation script on the EC2 instance:**
    
-        <img src="Src/Images/5.jpeg)
+        <img src="Src/Images/5.jpeg alt="Paris" class="center">
    
         ```
         <public_ip_address>:9000
@@ -405,7 +407,7 @@ Before you begin, ensure that you have the following:
    
      10. **Create and configure credentials:**
    
-         <img src="Src/Images/6.png" alt="Paris" class="center">)
+         <img src="Src/Images/6.png" alt="Paris" class="center">
    
          - Go to **Manage Jenkins → Credentials → Global** and create credentials for AWS, GitHub, and Docker.
    
@@ -415,19 +417,19 @@ Before you begin, ensure that you have the following:
    
      1. **Create a new Jenkins pipeline:**
    
-        <img src="Src/Images/7.png" alt="Paris" class="center">)
+        <img src="Src/Images/7.png" alt="Paris" class="center">
    
         - Click on **New Item**, give it a name, select **Pipeline**, and click **OK**. You will use the content from the `Jenkins-Pipeline-Code/Jenkinsfile-EKS-Terraform` file to create the EKS cluster via the Jenkins pipeline.
    
      2. **Configure the pipeline:**
    
-        <img src="Src/Images/8.png" alt="Paris" class="center">)
+        <img src="Src/Images/8.png" alt="Paris" class="center">
    
         - In the Pipeline section, provide your GitHub project URL, specify the credentials, and the path to the Jenkinsfile.
    
      3. **Run the pipeline:**
    
-        <img src="Src/Images/8.1.png" alt="Paris" class="center">)
+        <img src="Src/Images/8.1.png" alt="Paris" class="center">
    
         - Click **Apply**, then **Build Now**. This will create an EKS cluster.
    
@@ -437,7 +439,7 @@ Before you begin, ensure that you have the following:
    
      1. **Create a new Jenkins job:**
    
-        <img src="Src/Images/9.png" alt="Paris" class="center">)
+        <img src="Src/Images/9.png" alt="Paris" class="center">
    
         - Click on **New Item**, give it a name, select **Pipeline**, and click **OK**.
    
@@ -526,7 +528,7 @@ Before you begin, ensure that you have the following:
    
      2. **Create a new pipeline to configure the CI/CD job for the application. The content of the `Jenkins-Pipeline-Code/Jenkinsfile-Reddit` file will be used:**
    
-        <img src="Src/Images/10.png" alt="Paris" class="center">)
+        <img src="Src/Images/10.png" alt="Paris" class="center">
    
         - In the Pipeline section:
           - Choose **Script from SCM**.
@@ -535,25 +537,25 @@ Before you begin, ensure that you have the following:
    
      ### **Step 4: Build the Pipeline**
    
-     <img src="Src/Images/14.png" alt="Paris" class="center">)
+     <img src="Src/Images/14.png" alt="Paris" class="center">
    
-     <img src="Src/Images/15.png" alt="Paris" class="center">)
+     <img src="Src/Images/15.png" alt="Paris" class="center">
    
      1. **Create a GitHub token:**
         - Before triggering the build, create a GitHub token as a secret text with the ID `githubcred`. This token will be used to update the image created in the `deployment.yml` file.
      2. **Check the analysis results:**
    
-     <img src="Src/Images/16.png" alt="Paris" class="center">)
+     <img src="Src/Images/16.png" alt="Paris" class="center">
    
-     <img src="Src/Images/17.png" alt="Paris" class="center">)
+     <img src="Src/Images/17.png" alt="Paris" class="center">
    
-     <img src="Src/Images/18.png" alt="Paris" class="center">)
+     <img src="Src/Images/18.png" alt="Paris" class="center">
    
-     <img src="Src/Images/19.png" alt="Paris" class="center">)
+     <img src="Src/Images/19.png" alt="Paris" class="center">
    
      - Display the results of Trivy security scans, SonarQube analysis reports, and Dependency Checker tool outputs.
    
-     <img src="Src/Images/20.png" alt="Paris" class="center">)
+     <img src="Src/Images/20.png" alt="Paris" class="center">
    
      1. Update the deployment file:
         - The deployment file will be automatically updated with the tag corresponding to the Jenkins build number.
