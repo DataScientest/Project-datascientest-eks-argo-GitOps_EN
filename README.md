@@ -352,11 +352,7 @@ Before you begin, ensure that you have the following:
    
           4. Click on 
    
-             ```
-             Generate Token
-             ```
-   
-             :
+             `Generate Token`:
    
              - Give the token a name, e.g., `jenkins-token`.
              - Click **Generate**.
